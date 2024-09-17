@@ -1,0 +1,87 @@
+.carousel {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto; /* Center the carousel */
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.testimonial-content {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #7f8c8d; /* Light gray text */
+  margin-bottom: 20px;
+}
+
+.testimonial-author {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50; /* Darker color for the author name */
+}
+
+.testimonial-role {
+  font-size: 1rem;
+  color: #95a5a6; /* Lighter gray for the role/job title */
+}
+
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.carousel-buttons button {
+  background-color: #2c3e50;
+  border: none;
+  color: #ecf0f1;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: all;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.carousel-buttons button:hover {
+  background-color: #1abc9c; /* Teal on hover */
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #bdc3c7; /* Inactive dot color */
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.carousel-dot.active {
+  background-color: #2c3e50; /* Active dot color */
+}
