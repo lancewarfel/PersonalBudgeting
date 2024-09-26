@@ -1,22 +1,10 @@
 <main class="container">
   <app-header></app-header>
-  <section class="hero-section">
-    <h1>Take Control of Your Finances</h1>
-    <p>Track your spending, save smarter, and reach your goals.</p>
-    <button (click)="goToDashboard()">View Dashboard</button>
-  </section>
 
   <section class="container">
     <router-outlet></router-outlet>
   </section>
 
-  <section class="features">
-    <app-features></app-features>
-  </section>
-
-  <section class="testimonials">
-    <app-testimonial-carousel></app-testimonial-carousel>
-  </section>
   <app-footer></app-footer>
 </main>
 

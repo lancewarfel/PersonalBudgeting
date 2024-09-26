@@ -9,6 +9,7 @@ import {TestimonialCarouselComponent} from "../shared/testimonialcarousel/testim
 import {DashboardComponent} from "../pages/dashboard/dashboard.component";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatIcon} from "@angular/material/icon";
+import {HomePageComponent} from "./home-page/home-page.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {MatIcon} from "@angular/material/icon";
     FeaturesComponent,
     TestimonialCarouselComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

@@ -18,8 +18,4 @@ export class AppComponent implements OnInit {
       this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/business-logo.svg')
     );
   }
-
-  goToDashboard(): void {
-    this.router.navigate(['/dashboard']); // Route to the dashboard page
-  }
 }
