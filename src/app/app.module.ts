@@ -11,6 +11,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {MatIconModule} from "@angular/material/icon";
 import {NgOptimizedImage} from "@angular/common";
 import {provideAnimationsAsync} from "@angular/platform-browser/animations/async";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {provideAnimationsAsync} from "@angular/platform-browser/animations/async
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    FontAwesomeModule
   ],
   providers: [
     provideAnimationsAsync()

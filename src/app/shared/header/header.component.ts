@@ -5,13 +5,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.scss'
 })
-export class HeaderComponent  implements OnInit {
-
-  constructor( private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer ) {}
-
-  ngOnInit() {
-    this.matIconRegistry.addSvgIcon('main-icon', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/business-logo.svg'+ new Date().getTime()));
-  }
+export class HeaderComponent {
 }
