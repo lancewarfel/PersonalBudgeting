@@ -1,0 +1,28 @@
+.transaction-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.transaction-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.transaction-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+button {
+  grid-column: span 2;
+}
+
+.no-data-message {
+  text-align: center;
+  font-style: italic;
+  color: gray;
+  padding: 20px;
+}

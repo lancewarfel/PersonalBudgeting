@@ -1,0 +1,20 @@
+.goal-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  justify-items: center;
+  width: 400px; /* Adjust as needed for size */
+  height: 500px; /* Adjust as needed for size */
+  border-radius: 20px; /* Creates rounded edges */
+  border: 2px solid #ccc; /* Optional border for visibility */
+  background-color: #f0f0f0; /* Optional background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  margin: 20px auto; /* Center it on the page */
+  padding: 20px; /* Optional padding inside the box */
+}
+
+.button-container {
+  display: flex;
+  gap: 5rem;
+  margin-top: 5rem;
+}

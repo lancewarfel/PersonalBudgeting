@@ -1,0 +1,37 @@
+.features {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.feature {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px); /* Lift the card on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
+  }
+}
+
+.feature img {
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  color: #2c3e50; /* Dark color for contrast */
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #7f8c8d; /* Light gray for the text */
+}

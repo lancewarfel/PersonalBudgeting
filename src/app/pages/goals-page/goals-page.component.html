@@ -1,0 +1,24 @@
+<div class="goal-box">
+  <div [formGroup]="goalForm">
+    <div>
+      <app-wrapped-input [control]="goalForm.controls.goalId" [inputType]="'text'" [label]="'Goal Name '"></app-wrapped-input>
+    </div>
+    <div>
+      <app-wrapped-input [control]="goalForm.controls.goalAmount" [inputType]="'number'" [label]="'Goal Amount'"></app-wrapped-input>
+    </div>
+    <div>
+      <app-date-picker [label]="'Complete goal by:'"></app-date-picker>
+    </div>
+    <div>
+      <mat-checkbox [formControl]="goalForm.controls.safeSaving">Safe Saving</mat-checkbox>
+    </div>
+    <div>
+      <mat-checkbox [formControl]="goalForm.controls.agressiveSaving">Aggressive Saving</mat-checkbox>
+    </div>
+  </div>
+  <div class="button-container">
+    <button mat-flat-button>Save</button>
+    <button mat-flat-button>Cancel</button>
+  </div>
+</div>
+

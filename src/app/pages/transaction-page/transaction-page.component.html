@@ -1,0 +1,84 @@
+<div class="transaction-page">
+  <h1>Transactions</h1>
+
+  <!-- Add Transaction Form -->
+  <form [formGroup]="transactionForm" (ngSubmit)="addData()" class="transaction-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Transaction Name</mat-label>
+      <input matInput formControlName="name" placeholder="e.g., Grocery">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" formControlName="amount" placeholder="e.g., 50">
+    </mat-form-field>
+
+    <app-date-picker [control]="transactionForm.controls.date" [label]="'Date'"></app-date-picker>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="transactionForm.invalid">
+      Add Transaction
+    </button>
+  </form>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{element.controls.name.value}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>Category</th>
+      <td mat-cell *matCellDef="let element">{{element.controls.category.value}}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef>Amount</th>
+      <td mat-cell *matCellDef="let element">{{element.controls.amount.value}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let element">{{element.controls.date.value.toLocaleDateString()}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <button
+          mat-icon-button
+          [disabled]="!dataSource.length"
+          (click)="removeData(i)">
+          <mat-icon>Delete</mat-icon>
+        </button>
+        <button
+          mat-raised-button
+          [disabled]="!dataSource.length"
+          (click)="editData(i)"
+          class="demo-button">
+          Edit data
+        </button>
+      </td>
+    </ng-container>
+
+    <tr *ngIf="dataSource.length === 0">
+      <td colspan="5" class="no-data-message">No transactions available.</td>
+    </tr>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <pre>{{ dataSource.length | json }}</pre>
+</div>
