@@ -1,12 +1,6 @@
-.transaction-page {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 .transaction-form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, minmax(200px, 1fr)) auto;
   gap: 16px;
   margin-bottom: 20px;
 }

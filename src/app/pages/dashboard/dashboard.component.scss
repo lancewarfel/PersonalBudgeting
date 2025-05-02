@@ -1,18 +1,18 @@
 .dashboard-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: auto 1fr;
   gap: 20px;
   padding: 40px;
 }
 
-.account-balance, .recent-transactions, .goal-progress {
+.account-balance, .recent-transactions {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.account-balance h2, .recent-transactions h2, .goal-progress h2 {
+.account-balance h2, .recent-transactions h2 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
@@ -60,6 +60,9 @@
   background-color: #f0f0f0;
   border-radius: 20px;
   height: 20px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
   margin-bottom: 10px;
 }
 
@@ -67,4 +70,22 @@
   background-color: #28a745;
   height: 100%;
   border-radius: 20px;
+}
+
+.goal-progress h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.goal-progress {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.goal {
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
 }

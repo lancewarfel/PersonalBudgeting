@@ -4,7 +4,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-features',
   templateUrl: './features.component.html',
-  styleUrl: './features.component.css',
+  styleUrl: './features.component.scss',
   standalone: true,
   imports: []
 })

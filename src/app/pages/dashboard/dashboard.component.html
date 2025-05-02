@@ -3,30 +3,22 @@
   <!-- Account Balance Section -->
   <div class="account-balance">
     <h2>Account Balance</h2>
-    <p>${{ accountBalance.toFixed(2) }}</p>
+    <p>${{ form.controls.transactions.value | totalPipe : 'amount' : 2 }}</p>
+    <div class="goal-progress">
+      <h2>Savings Goal Progress</h2>
+      <div class="progress-bar">
+        <div class="progress" [style.width]="getTransactionPercent < 100 ? getTransactionPercent.toFixed(2) + '%' : '100%'"></div>
+      </div>
+      <div class="goal">
+        <p>{{ getTransactionPercent < 100 ? getTransactionPercent.toFixed(2) + '%' : '100%' }} complete</p>
+        <p>{{goal | currency}}</p>
+      </div>
+    </div>
   </div>
 
   <!-- Recent Transactions Section -->
   <div class="recent-transactions">
     <h2>Recent Transactions</h2>
-    <ul>
-      <li *ngFor="let transaction of recentTransactions">
-        <span class="description">{{ transaction.description }}</span>
-        <span class="amount" [class.negative]="transaction.amount < 0">
-          {{ transaction.amount < 0 ? '-' : '' }}${{ Math.abs(transaction.amount).toFixed(2) }}
-        </span>
-        <span class="date">{{ transaction.date }}</span>
-      </li>
-    </ul>
+    <app-transaction-component [transactionForm]="form"></app-transaction-component>
   </div>
-
-  <!-- Goal Progress Section -->
-  <div class="goal-progress">
-    <h2>Savings Goal Progress</h2>
-    <div class="progress-bar">
-      <div class="progress" [style.width]="goalProgress + '%'"></div>
-    </div>
-    <p>{{ goalProgress }}% complete</p>
-  </div>
-
 </div>

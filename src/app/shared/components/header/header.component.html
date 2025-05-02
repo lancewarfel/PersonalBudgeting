@@ -1,10 +1,5 @@
 <header>
-<<<<<<< Updated upstream:src/app/shared/header/header.component.html
-    <mat-icon svgIcon="main-icon" style="width: 300px; height: 300px;"></mat-icon>
-    <img ngSrc="./assets/icons/business-logo.svg" alt="Business Logo" width="200" height="100" class="logo">
-=======
-  <a class="home-link" routerLink="">FinTrack</a>
->>>>>>> Stashed changes:src/app/shared/components/header/header.component.html
+  <img src="assets/icons/business-logo.svg" alt="Logo" (click)="routeToHome()">
   <nav>
     <ul>
       <li><a routerLink="/dashboard">Dashboard</a></li>
@@ -15,6 +10,6 @@
     </ul>
   </nav>
   <div class="user-profile">
-    <img src="../../assets/profile.png" alt="User Profile">
+    <mat-icon (click)="routeToHome()">account_circle</mat-icon>
   </div>
 </header>

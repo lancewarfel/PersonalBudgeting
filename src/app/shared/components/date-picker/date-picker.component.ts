@@ -22,7 +22,7 @@ import {FormControl, ReactiveFormsModule} from "@angular/forms";
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './date-picker.component.html',
-  styleUrl: './date-picker.component.css'
+  styleUrl: './date-picker.component.scss'
 })
 export class DatePickerComponent {
   @Input() label: string = '';

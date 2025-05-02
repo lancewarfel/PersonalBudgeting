@@ -1,30 +1,16 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import {MatNativeDateModule} from "@angular/material/core";
-import {FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatTable, MatTableDataSource, MatTableModule} from "@angular/material/table";
+import {MatTable, MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
 import {DatePipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
-import {DatePickerComponent} from "../../shared/components/date-picker/date-picker.component";
+import {DatePickerComponent} from "../../../../shared/components/date-picker/date-picker.component";
 import {MatIcon} from "@angular/material/icon";
-
-export interface TransactionForm {
-  name: FormControl<string | null>;
-  category: FormControl<string | null>;
-  amount: FormControl<number | null>;
-  date: FormControl<Date | null>;
-  transactions: FormArray<FormGroup<Transaction>>
-}
-
-export interface Transaction {
-  name: FormControl<string | null>;
-  category: FormControl<string | null>;
-  amount: FormControl<number | null>;
-  date: FormControl<Date | null>;
-}
+import {Transaction, TransactionGroup} from "../models/transaction.models";
 
 export interface PeriodicElement {
   name: string;
@@ -47,7 +33,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 @Component({
-  selector: 'app-transaction-page',
+  selector: 'app-transaction-component',
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -65,36 +51,21 @@ const ELEMENT_DATA: PeriodicElement[] = [
     JsonPipe,
     MatIcon,
   ],
-  templateUrl: './transaction-page.component.html',
-  styleUrl: './transaction-page.component.css'
+  templateUrl: './transaction.component.html',
+  styleUrl: './transaction.component.css'
 })
-export class TransactionPageComponent implements OnInit{
-  public transactionForm!: FormGroup<TransactionForm>;
-  public displayedColumns: string[] = ['name', 'category', 'amount', 'date', 'button'];
+export class TransactionComponent {
+  @Input() public transactionForm!: FormGroup<TransactionGroup>;
+  public displayedColumns: string[] = ['name', 'category', 'amount', 'date', 'delete-button', 'edit-button'];
   public categories = ['Groceries', 'Rent', 'Utilities', 'Entertainment', 'Miscellaneous'];
 
   public dataSource:FormGroup<Transaction>[] = [];
   @ViewChild(MatTable) public table!: MatTable<FormArray<FormGroup<Transaction>>>;
 
-  constructor(private fb: FormBuilder) {
-  }
-
-  public ngOnInit() {
-    this.transactionForm = this.fb.group<TransactionForm>({
-      name: this.fb.control(null),
-      category: this.fb.control(null),
-      amount: this.fb.control(null),
-      date: this.fb.control(null),
-      transactions: this.fb.array<FormGroup<Transaction>>([]),
-    });
-
-    console.log(this.dataSource.length);
-
-   /* this.dataSource.data = this.transactionForm.controls.transactions.controls;*/
-  }
+  constructor() {}
 
   addData() {
-    this.dataSource.push(this.addTransaction());
+    this.transactionForm.controls.transactions.push(this.addTransaction());
     this.transactionForm.patchValue({
       name: null,
       category: null,
@@ -107,7 +78,6 @@ export class TransactionPageComponent implements OnInit{
   removeData(index: number) {
     console.log(index);
     this.transactions.removeAt(index);
-    this.dataSource = this.transactions.controls;
     this.table.renderRows();
   }
 
@@ -115,19 +85,13 @@ export class TransactionPageComponent implements OnInit{
     console.log(index, 'dialog');
   }
 
-  get totalExpenses(): number {
-    return this.transactions.controls.reduce((sum, transaction) => sum + (transaction.controls.amount.value ?? 0), 0);
-  }
-
   addTransaction() {
-      return new FormGroup({
+      return new FormGroup<Transaction>({
         name: new FormControl(this.transactionForm.controls.name.value ?? ''),
         category: new FormControl(this.transactionForm.controls.category.value ?? ''),
         amount: new FormControl(this.transactionForm.controls.amount.value ?? 0),
         date: new FormControl(this.transactionForm.controls.date.value ?? new Date()),
       });
-
-   /* console.log(this.transactions.value, this.dataSource.data);*/
   }
 
   get transactions(): FormArray<FormGroup<Transaction>> {

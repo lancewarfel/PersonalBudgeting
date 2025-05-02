@@ -8,8 +8,8 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-  aspect-ratio: unset !important;
+img:hover {
+  cursor: pointer
 }
 
 nav {
@@ -35,11 +35,20 @@ nav {
 }
 
 .user-profile {
-  img {
+  mat-icon {
+    display: flex;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #ecf0f1; /* White border */
+    border: 2px solid #ecf0f1;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      color: #1abc9c;
+      border: 2px solid #1abc9c;
+      cursor: pointer;
+    }
   }
 }
 

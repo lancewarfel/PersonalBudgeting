@@ -1,35 +1,31 @@
-import {NgModule} from "@angular/core";
-import {AppComponent} from "./app.component";
-import {HeaderComponent} from "./shared/header/header.component";
-import {FeaturesComponent} from "./shared/features/features.component";
-import {TestimonialCarouselComponent} from "./shared/testimonialcarousel/testimonialcarousel.component";
-import {FooterComponent} from "./shared/footer/footer.component";
-import {DashboardComponent} from "./pages/dashboard/dashboard.component";
-import {HomePageComponent} from "./pages/home-page/home-page.component";
-import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {AppComponent} from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
-import {MatIconModule} from "@angular/material/icon";
+import {TestimonialCarouselComponent} from "./shared/components/testimonialcarousel/testimonialcarousel.component";
+import {DashboardComponent} from "./pages/dashboard/dashboard.component";
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
+import {FooterComponent} from "./shared/components/footer/footer.component";
 import {NgOptimizedImage} from "@angular/common";
-import {provideAnimationsAsync} from "@angular/platform-browser/animations/async";
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import {HeaderComponent} from "./shared/components/header/header.component";
+import {MatIconModule} from "@angular/material/icon";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FeaturesComponent,
-    TestimonialCarouselComponent,
-    FooterComponent,
-    DashboardComponent,
-    HomePageComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgOptimizedImage,
+    TestimonialCarouselComponent,
+    FooterComponent,
+    DashboardComponent,
+    HeaderComponent,
     MatIconModule,
     NgOptimizedImage,
-    FontAwesomeModule
+    HttpClientModule,
   ],
   providers: [
     provideAnimationsAsync()
