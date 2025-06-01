@@ -52,7 +52,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatIcon,
   ],
   templateUrl: './transaction.component.html',
-  styleUrl: './transaction.component.css'
+  styleUrl: './transaction.component.scss'
 })
 export class TransactionComponent {
   @Input() public transactionForm!: FormGroup<TransactionGroup>;

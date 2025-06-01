@@ -1,7 +1,10 @@
 <div class="goal-progress">
   <h2>Savings Goal Progress</h2>
   <div class="progress-bar">
-    <div class="progress" [style.width]="goalProgress + '%'"></div>
+    <div class="progress diff-style" [style.width]="getTransactionPercent < 100 ? getTransactionPercent.toFixed(2) + '%' : '100%'"></div>
   </div>
-  <p>{{ percentGoal }} complete</p>
+  <div class="goal">
+    <p class="diff-style">{{ getTransactionPercent < 100 ? getTransactionPercent.toFixed(2) + '%' : '100%' }} complete</p>
+    <p class="diff-style">{{goal | currency}}</p>
+  </div>
 </div>

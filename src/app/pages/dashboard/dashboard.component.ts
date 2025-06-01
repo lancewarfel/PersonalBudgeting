@@ -98,8 +98,4 @@ export class DashboardComponent implements OnInit {
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
   }
-
-  public get getTransactionPercent() {
-    return this.form.controls.transactions.controls.reduce((acc, record) => (acc + (record.controls.amount.value ?? 0)), 0) / this.goal * 100;
-  }
 }

@@ -4,16 +4,7 @@
   <div class="account-balance">
     <h2>Account Balance</h2>
     <p>${{ form.controls.transactions.value | totalPipe : 'amount' : 2 }}</p>
-    <div class="goal-progress">
-      <h2>Savings Goal Progress</h2>
-      <div class="progress-bar">
-        <div class="progress diff-style" [style.width]="getTransactionPercent < 100 ? getTransactionPercent.toFixed(2) + '%' : '100%'"></div>
-      </div>
-      <div class="goal">
-        <p class="diff-style">{{ getTransactionPercent < 100 ? getTransactionPercent.toFixed(2) + '%' : '100%' }} complete</p>
-        <p class="diff-style">{{goal | currency}}</p>
-      </div>
-    </div>
+    <!--<app-progress-bar [goalProgress]="form.controls.transactions"></app-progress-bar>-->
   </div>
 
   <!-- Recent Transactions Section -->
